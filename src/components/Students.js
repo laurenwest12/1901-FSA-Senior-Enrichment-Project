@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getStudentsThunk, postStudentThunk, deleteStudentThunk} from '../store';
+import {getStudentsThunk, getCampusesThunk, postStudentThunk, deleteStudentThunk} from '../store';
 import {Link} from 'react-router-dom';
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getStudents: dispatch(getStudentsThunk()),
+        getCampuses: dispatch(getCampusesThunk()),
         postStudent: (newStudent) => dispatch(postStudentThunk(newStudent)),
         deleteStudent: (id) => dispatch(deleteStudentThunk(id))
     }
@@ -13,7 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        students: state.students
+        students: state.students,
+        campuses: state.campuses
     }
 };
 
@@ -25,16 +27,14 @@ class Students extends Component {
             lastName: '',
             email: '',
             imageUrl: undefined,
-            gpa: undefined
+            gpa: undefined,
+            campusId: undefined
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange ({target}) {
-        console.log(target.name)
-        console.log(target.value)
-        console.log(this.state)
         this.setState({
           [target.name]: target.value,
         })
@@ -46,7 +46,7 @@ class Students extends Component {
     };
 
     render () {
-        const {students, deleteStudent} = this.props
+        const {students, campuses, deleteStudent} = this.props
         return (
             <div>
                 <ul> {students && students.map(student => (
@@ -76,6 +76,14 @@ class Students extends Component {
                         <label>GPA</label>
                         <input className =  'form-control' type = 'text' name = 'gpa' value = {this.state.gpa} onChange = {this.handleChange}/>
 
+                        <label>Campus</label>
+
+                        <select className = 'form-control' onChange = {this.handleChange} name = 'campusId'>
+                            <option value>None</option>
+                            {campuses && campuses.map(campus => (
+                                <option value = {campus.id} key = {campus.name}>{campus.name}</option>
+                            ))}
+                        </select>
                         <button type = 'submit' className = 'btn btn-primary'>Submit</button>
 
                 </form>
