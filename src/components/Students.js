@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getStudentsThunk, postStudentThunk} from '../store';
+import {getStudentsThunk, postStudentThunk, deleteStudentThunk} from '../store';
 import {Link} from 'react-router-dom';
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getStudents: dispatch(getStudentsThunk()),
-        postStudent: (newStudent) => dispatch(postStudentThunk(newStudent))
+        postStudent: (newStudent) => dispatch(postStudentThunk(newStudent)),
+        deleteStudent: (id) => dispatch(deleteStudentThunk(id))
     }
 };
 
@@ -45,14 +46,15 @@ class Students extends Component {
     };
 
     render () {
-        const {students} = this.props
+        const {students, deleteStudent} = this.props
         return (
             <div>
                 <ul> {students && students.map(student => (
                     <li key = {student.firstName}>
-                    
-                    <Link to = {`/student/${student.id}`}>{student.firstName} {student.lastName}</Link>
-                    
+                
+                    <Link to = {`/student/${student.id}`}>{student.firstName} {student.lastName} </Link>
+                    <button className = 'btn btn-danger btn-sm' type='submit' onClick = {() => deleteStudent(student.id)}>X</button>
+
                     </li>
                 ))}
                 </ul>

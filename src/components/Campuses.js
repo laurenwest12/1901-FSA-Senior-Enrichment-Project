@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getCampusesThunk, postCampusThunk} from '../store';
+import {getCampusesThunk, postCampusThunk, deleteCampusThunk} from '../store';
 import {Link} from 'react-router-dom';
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getCampuses: dispatch(getCampusesThunk()),
-    postCampus: (newCampus) => dispatch(postCampusThunk(newCampus))
+    postCampus: (newCampus) => dispatch(postCampusThunk(newCampus)),
+    deleteCampus: (id) => dispatch(deleteCampusThunk(id))
   }
 };
 
@@ -40,18 +41,18 @@ class Campuses extends Component {
     evt.preventDefault()
     this.props.postCampus(this.state)
   };
-
   render() {
-    const {campuses} = this.props
+    const {campuses, deleteCampus} = this.props
 
     return (
 
       <div>
         <ul>
           {campuses && campuses.map(campus => (
-            <li key = {campus.name}>
+              <li key = {campus.name}>
               <img src = {campus.imageUrl}/>
-              <Link to = {`/campus/${campus.id}`}>{campus.name}</Link>
+              <Link to = {`/campus/${campus.id}`}>{campus.name} </Link> 
+              <button className = 'btn btn-danger btn-sm' type='submit' onClick = {() => deleteCampus(campus.id)}>X</button>
             
             </li>
           ))}

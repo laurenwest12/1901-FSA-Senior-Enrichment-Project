@@ -38,19 +38,40 @@ app.get('/api/student/:id', (req, res, next) => {
     Student.findByPk(id)
       .then((student) => res.send(student))
       .catch(next)
-})
+});
 
 app.post('/api/campus/', (req, res, next) => {
     console.log('post reached')
     Campus.create(req.body)
       .then((campus) => res.send(campus))
       .catch(next)
-})
+});
 
 app.post('/api/student/', (req, res, next) => {
     Student.create(req.body)
       .then((student) => res.send(student))
       .catch(next)
+});
+
+app.delete('/api/campus/:id', (req, res, next) => {
+    Campus.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() => res.status(204).end())
+    .catch(next)
+});
+
+app.delete('/api/student/:id', (req, res, next) => {
+    console.log(req.params.id)
+    Student.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() => res.status(204).end())
+    .catch(next)
 })
   
 syncAndSeed()

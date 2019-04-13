@@ -87,7 +87,7 @@ export const getCampusThunk = (id) => {
     axios.get(`/api/campus/${id}`)
       .then(({data}) => dispatch(getCampusAction(data)))
   }
-}
+};
 
 export const getStudentThunk = (id) => {
   return (dispatch) => {
@@ -95,7 +95,7 @@ export const getStudentThunk = (id) => {
       .then(({data}) =>  dispatch(getStudentAction(data))
       )
   }
-}
+};
 
 export const postCampusThunk = (newCampus) => {
   console.log(newCampus)
@@ -103,14 +103,30 @@ export const postCampusThunk = (newCampus) => {
     axios.post('/api/campus/', newCampus)
       .then(() => dispatch(getCampusesThunk()))
   }
-}
+};
 
 export const postStudentThunk = (newStudent) => {
   return (dispatch) => {
     axios.post('/api/student/', newStudent)
       .then(() => dispatch(getStudentsThunk()))
   }
+};
+
+export const deleteCampusThunk = (id) => {
+  return (dispatch) => {
+    axios.delete(`/api/campus/${id}`)
+      .then(() => dispatch(getCampusesThunk()))
+  }
 }
+
+export const deleteStudentThunk = (id) => {
+  return (dispatch) => {
+    axios.delete(`/api/student/${id}`)
+      .then(() => dispatch(getStudentsThunk()))
+  }
+}
+
+
 const reducer = combineReducers ({
         students,
         campuses,
