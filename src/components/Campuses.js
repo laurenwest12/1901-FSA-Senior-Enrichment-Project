@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getCampusesThunk} from '../store';
+import {Link} from 'react-router-dom';
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -24,7 +25,7 @@ class Campuses extends Component {
         {campuses && campuses.map(campus => (
           <li key = {campus.name}>
             <img src = {campus.imageUrl}/>
-            {campus.name}
+            <Link to = {`/campus/${campus.id}`}>{campus.name}</Link>
           
           </li>
         ))}

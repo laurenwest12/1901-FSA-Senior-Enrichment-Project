@@ -35,6 +35,6 @@ const Nav = ({location: {pathname}}) => {
         }
         </ul>
     )
-}
+};
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps)(Nav);
