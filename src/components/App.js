@@ -12,7 +12,7 @@ export default class App extends Component {
         return (
             <HashRouter>
                 <div>
-                <h1>Home</h1>
+                <div className = 'nav justify-content-center'><h1 className = 'font-weight-bold'>Student Directory</h1></div>
                 <Route render = {({location, history}) => <Nav history = {history} location = {location} />}/>
                 {/* <Nav /> */}
                 <Route exact path = '/' component = {Campuses}/>

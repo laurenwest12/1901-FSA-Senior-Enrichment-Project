@@ -46,15 +46,18 @@ class Student extends Component {
             <ul>
                 {student &&
                     <div>
-                        <img src = {student.imageUrl}/>
-                        <br/>
-                        {student.firstName} {student.lastName}
-                        <br/>
-                        {student.gpa}
-                        <br/>
-                        {student.email}
-                        <br/>
-                        {student.campusId && <Link to = {`/campus/${findCampusId(student.campusId)}`}>{findCampusName(student.campusId)}</Link>}
+                        <div className = 'row align-items-center'>
+                        <div className = 'col'>
+                        <div className = 'nav justify-content-center'><h2 className = 'font-weight-bold'>{student.firstName} {student.lastName}</h2></div>
+                        <div className = 'nav justify-content-center'>{student.gpa}</div>
+                        <div className = 'nav justify-content-center'>{student.email}</div>
+                        <div className = 'nav justify-content-center'>{student.campusId && <Link to = {`/campus/${findCampusId(student.campusId)}`}>{findCampusName(student.campusId)}</Link>}</div>
+                        </div>
+
+                        <div className = 'col'>
+                        <div className = 'nav justify-content-center'><img style = {{width: 500, height: 300}}src = {student.imageUrl}/></div>
+                        </div>
+                        </div>
                     </div>
                 }
             </ul>

@@ -9,7 +9,7 @@ const Campus = db.define('campus', {
     },
     imageUrl: {
       type: Sequelize.STRING,
-      defaultValue: 'https://images.pexels.com/photos/159490/yale-university-landscape-universities-schools-159490.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+      defaultValue: 'https://goseecampus.com/images/big-college-campus-visit.jpg'
     },
     address: {
       type: Sequelize.STRING,

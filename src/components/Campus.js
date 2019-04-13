@@ -28,15 +28,32 @@ class Campus extends Component {
         return ( 
             <ul>
                 {campus && 
-                <div>{campus.name} 
-                    <br/>
-                    <img src = {campus.imageUrl}/>
-                    <br/>
-                    {campus.address}
-                    <br/>
+                    <div>
+                    
+                    <div className = 'nav justify-content-center'>
+                        <h2 className = 'font-weight-bold'>{campus.name}</h2>
+                    </div>
+
+                    
+                    <div className = 'nav justify-content-center'>
+                    <img style = {{height: 300, width: 500}} src = {campus.imageUrl}/>
+                    </div>
+
+                    <div className = 'nav justify-content-center'>
+                    <p className = 'font-italic'>{campus.address}</p>
+                    </div>
+
+                    <div className = 'nav justify-content-center'>
                     {campus.description}
+                    </div>
+
                     <br/>
-                    Students
+                    
+                    <div className = 'nav justify-content-center'>
+                    <div className = 'font-weight-bold'>Students</div>
+                    </div>
+
+                    <div className = 'nav justify-content-center'>
                     <ul>
                         {findStudents(campus.id).length ? findStudents(campus.id).map(student => (
                             <li key = {student.firstName}>
@@ -44,6 +61,7 @@ class Campus extends Component {
                             </li>
                         )) : 'No students attending'}
                     </ul>
+                    </div>
                 </div>}
             </ul>
         )
