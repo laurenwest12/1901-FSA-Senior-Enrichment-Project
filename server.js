@@ -5,6 +5,10 @@ const {syncAndSeed, Campus, Student} = require('./db/index');
 
 const port = process.env.PORT || 3000;
 
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({ extended: true })); 
+
 app.get('/app.js', (req, res, next)=> res.sendFile(path.join(__dirname, 'dist', 'main.js')));
 
 app.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html')));
@@ -32,6 +36,19 @@ app.get('/api/campus/:id', (req, res, next) => {
 app.get('/api/student/:id', (req, res, next) => {
     const id = req.params.id;
     Student.findByPk(id)
+      .then((student) => res.send(student))
+      .catch(next)
+})
+
+app.post('/api/campus/', (req, res, next) => {
+    console.log('post reached')
+    Campus.create(req.body)
+      .then((campus) => res.send(campus))
+      .catch(next)
+})
+
+app.post('/api/student/', (req, res, next) => {
+    Student.create(req.body)
       .then((student) => res.send(student))
       .catch(next)
 })

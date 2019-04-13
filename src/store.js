@@ -97,6 +97,20 @@ export const getStudentThunk = (id) => {
   }
 }
 
+export const postCampusThunk = (newCampus) => {
+  console.log(newCampus)
+  return (dispatch) => {
+    axios.post('/api/campus/', newCampus)
+      .then(() => dispatch(getCampusesThunk()))
+  }
+}
+
+export const postStudentThunk = (newStudent) => {
+  return (dispatch) => {
+    axios.post('/api/student/', newStudent)
+      .then(() => dispatch(getStudentsThunk()))
+  }
+}
 const reducer = combineReducers ({
         students,
         campuses,

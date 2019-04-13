@@ -6,10 +6,10 @@ const syncAndSeed = () => {
   return db.sync({force: true})
   .then(() => {
     Promise.all([
-      Campus.create({name: 'Ohio University', address: ''}),
-      Campus.create({name: 'Kent State University', address: ''}),
-      Campus.create({name: 'Miami University', address: ''}),
-      Campus.create({name: 'Ohio State University', address: ''})
+      Campus.create({name: 'Ohio University', address: '123 Third Ave'}),
+      Campus.create({name: 'Kent State University', address: '123 Third Ave'}),
+      Campus.create({name: 'Miami University', address: '123 Third Ave'}),
+      Campus.create({name: 'Ohio State University', address: '123 Third Ave'})
     ])
     .then(() => {
       Promise.all([

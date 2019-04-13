@@ -29,12 +29,16 @@ class Campus extends Component {
             <ul>
                 {campus && 
                 <div>{campus.name} 
+                    <br/>
                     <img src = {campus.imageUrl}/>
+                    <br/>
                     {campus.address}
+                    <br/>
                     {campus.description}
+                    <br/>
                     Students
                     <ul>
-                        {findStudents(campus.id) ? findStudents(campus.id).map(student => (
+                        {findStudents(campus.id).length ? findStudents(campus.id).map(student => (
                             <li key = {student.firstName}>
                                 <Link to = {`/student/${student.id}`}>{student.firstName} {student.lastName}</Link>
                             </li>
