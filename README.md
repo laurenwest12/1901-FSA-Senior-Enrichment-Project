@@ -2,7 +2,7 @@
 
 Create an app that manages a directory campuses and the students of each campus.
 
-##Deployed App
+## Deployed App
 
 http://lauren-senior-enrichment.herokuapp.com/
 
