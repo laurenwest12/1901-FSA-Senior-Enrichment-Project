@@ -1,36 +1,125 @@
-const db = require('./db')
-const Campus = require('./models/Campus')
-const Student = require('./models/Student')
+const db = require('./db');
+const Campus = require('./models/Campus');
+const Student = require('./models/Student');
 
 const syncAndSeed = () => {
-  return db.sync({force: true})
-  .then(() => {
+  return db.sync({ force: true }).then(() => {
     Promise.all([
-      Campus.create({name: 'Ohio University', address: 'Athens, OH', imageUrl: 'https://lh5.googleusercontent.com/p/AF1QipOdY82EjHoBYWp0OEkjA0jcMU2zPUgXxQwewTx3=w284-h160-k-no', description: 'Ohio University is a public research university in Athens, Ohio. The first university chartered by an Act of Congress and the first to be chartered in Ohio, it was chartered in 1787 by the Congress of the Confederation and subsequently approved for the territory in 1802 and state in 1804, opening for students in 1809.'}),
-      Campus.create({name: 'Kent State University', address: 'Kent, OH', imageUrl: 'https://lh5.googleusercontent.com/p/AF1QipNbGhtUN9qusMW75caqnXcpKOK8xQI8odfpHN53=w213-h160-k-no', description: 'Kent State University is a public research university in Kent, Ohio. The university also includes seven regional campuses in Northeast Ohio and additional facilities in the region and internationally.'}),
-      Campus.create({name: 'Miami University', address: 'Miami, OH', imageUrl: 'https://lh3.googleusercontent.com/proxy/RP7c3Ezb6m-fwu7J14Q0fEDx8bKubX0lLrQPrCMlbhUKezX5Un9VFPdAbcwVCmpFUhTgA3fs6jiGACHVflu87G0bQqhe9wfyI7I7_AdSCkxyNWMv-_97USLFb2o9G4BPszTfcpDeKOIENbDsAbTWZuPH9t_Qkaw=w227-h144-k-no', description: 'Miami University is a public research university in Oxford, Ohio, United States. The university was founded in 1809, although classes were not held until 1824. Miami University is the second-oldest university in Ohio and the 10th oldest public university in the United States.'}),
-      Campus.create({name: 'Ohio State University', address: 'Columbus, OH', imageUrl: 'https://lh5.googleusercontent.com/p/AF1QipNqHAnVZ6vPu7DoUS-Xq2PO1JzINc8BPWJwkl-G=w318-h160-k-no', description: 'The Ohio State University, commonly referred to as Ohio State or OSU, is a large public research university in Columbus, Ohio. Founded in 1870 as a land-grant university and the ninth university in Ohio with the Morrill Act of 1862, the university was originally known as the Ohio Agricultural and Mechanical College.'})
-    ])
-    .then(() => {
+      Campus.create({
+        name: 'Hypnotic Donuts University',
+        address: 'Dallas, TX',
+        imageUrl:
+          'https://s3-media2.fl.yelpcdn.com/bphoto/0ds2Lk7ZdbX9wx1zgyvZIw/o.jpg',
+        description:
+          'Unique varieties of artisan donuts & chicken biscuits offered in a laid-back, strip-mall setting.'
+      }),
+      Campus.create({
+        name: 'Academy of District Donuts Sliders Brew',
+        address: 'New Orleans, LA',
+        imageUrl:
+          'https://s3-media3.fl.yelpcdn.com/bphoto/8DXE2l5wYld9ovGQjSpjkg/o.jpg',
+        description:
+          'Comfy cafe offering caffeinated drinks, little burgers & sweets in a rustic-chic ambiance.'
+      }),
+      Campus.create({
+        name: "Stan's Donuts & Coffee State University",
+        address: 'Chicago, IL',
+        imageUrl:
+          'https://s3-media3.fl.yelpcdn.com/bphoto/i2F-gqjfC3ySkf378nToPg/o.jpg',
+        description:
+          'Stylish spot supplying gourmet donuts, gelato & coffee drinks brewed from La Colombe beans.'
+      }),
+      Campus.create({
+        name: 'Donut Friend College',
+        address: 'Los Angeles, CA',
+        imageUrl:
+          'https://s3-media1.fl.yelpcdn.com/bphoto/ZvHyCX22FVPpSRdT8XYwUw/o.jpg',
+        description:
+          'Colorful, compact shop offering made-to-order donuts with variety of sweet & savory flavor options.'
+      }),
+      Campus.create({
+        name: "Academy of Beiler's Donuts",
+        address: 'Philadelphia, PA',
+        imageUrl:
+          'https://s3-media4.fl.yelpcdn.com/bphoto/vzCfZZHvJ458wsxg7KQwRQ/o.jpg',
+        description:
+          'Destination for baked goods, including Pennsylvania Dutch classics & a variety of housemade donuts.'
+      }),
+      Campus.create({
+        name: 'University of Dough',
+        address: 'New York, NY',
+        imageUrl:
+          'https://s3-media4.fl.yelpcdn.com/bphoto/9e_IKW3-ejVratfRGkpbMg/o.jpg',
+        description:
+          'Lively corner shop for housemade donuts with inventive glazes & fillings plus French-press coffee.'
+      })
+    ]).then(([c1, c2, c3, c4, c5, c6]) => {
       Promise.all([
-        Student.create({firstName: 'Lauren', lastName: 'West', email: 'laurenwest12@gmail.com', gpa: 3.8, campusId: 1}),
-        Student.create({firstName: 'Daniel', lastName: 'Holtzman', email: 'danielmholztman@gmail.com', gpa: 3.9, campusId: 3}),
-        Student.create({firstName: 'Doug', lastName: 'Dale', email: 'daledoug6@gmail.com', gpa: 3.3, campusId: 4}),
-        Student.create({firstName: 'Travis', lastName: 'Usher', email: 'trvsusher@gmail.com', gpa: 3.5, campusId: 2}),
-        Student.create({firstName: 'Alex', lastName: 'Fishler', email: 'aefishler@gmail.com', gpa: 4.0, campusId: 1}),
-      ])
-    })
-  })
-  
-}
+        Student.create({
+          firstName: 'Zoo',
+          lastName: 'Ropa',
+          email: 'zoo-ropa@hypnotic.edu',
+          gpa: 3.8,
+          imageUrl:
+            'https://s3-media2.fl.yelpcdn.com/bphoto/AY5hb12JD_KpW2hHN_Uu7w/o.jpg',
+          campusId: c1.id
+        }),
+        Student.create({
+          firstName: 'Turtle',
+          lastName: 'Cheesecake',
+          email: 'tutle-cheesecake@district.edu',
+          gpa: 3.9,
+          imageUrl:
+            'https://s3-media1.fl.yelpcdn.com/bphoto/ucneFF6DlrTn5RGIllp_aA/o.jpg',
+          campusId: c2.id
+        }),
+        Student.create({
+          firstName: 'Biscoff Banana',
+          lastName: 'Pocket',
+          email: 'bbiscoff@stans.edu',
+          gpa: 3.3,
+          imageUrl:
+            'https://s3-media2.fl.yelpcdn.com/bphoto/aTpJyaGia9t2BoduCuWJKg/o.jpg',
+          campusId: c3.id
+        }),
+        Student.create({
+          firstName: "S'Morrissey",
+          lastName: 'Donut',
+          email: 'smorris@donutfriend.edu',
+          gpa: 3.5,
+          imageUrl:
+            'https://s3-media2.fl.yelpcdn.com/bphoto/tHoZ1H5P1resXusGn1FGHA/o.jpg',
+          campusId: c4.id
+        }),
+        Student.create({
+          firstName: 'Oreo',
+          lastName: 'Donut',
+          email: 'oreo@beilers.edu',
+          gpa: 4.0,
+          imageUrl:
+            'https://s3-media3.fl.yelpcdn.com/bphoto/cbJfhxTovrMUw99HVMkavw/o.jpg',
+          campusId: c5.id
+        }),
+        Student.create({
+          firstName: 'Ducle',
+          lastName: 'de Leche',
+          email: 'dleche@doughny.edu',
+          gpa: 2.5,
+          imageUrl:
+            'https://s3-media4.fl.yelpcdn.com/bphoto/DL19ur_QB26x0Yt5rqw5mw/o.jpg',
+          campusId: c6.id
+        })
+      ]);
+    });
+  });
+};
 
-
-Student.belongsTo(Campus, {as: 'campus'})
-Campus.hasMany(Student)
+Student.belongsTo(Campus, { as: 'campus' });
+Campus.hasMany(Student);
 
 module.exports = {
   db,
   syncAndSeed,
-  Campus, 
+  Campus,
   Student
-}
+};

@@ -1,0 +1,205 @@
+body {
+  font-family: 'Courier New';
+  background-color: #fdbcb8;
+}
+
+.submit-btn {
+  font-family: 'Courier New';
+  display: inline-block;
+  width: 50%;
+  position: absolute;
+  left: 26%;
+  padding: 0.5em 3em;
+  border: 0.16em solid black;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  background: url(https://images.pexels.com/photos/1982485/pexels-photo-1982485.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  font-size: 24px;
+}
+.submit-btn:hover {
+  color: #dddddd;
+  border-color: #dddddd;
+}
+.submit-btn:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
+}
+
+.navbar-nav li {
+  padding: 0 15px;
+  color: black;
+  top: 0;
+  font-family: 'Courier New';
+}
+
+nav {
+  background-image: url(https://images.pexels.com/photos/1982485/pexels-photo-1982485.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.thead {
+  background: #fd736d;
+  color: black;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.nav-link {
+  flex-direction: row;
+}
+
+.main-img {
+  background-image: url(https://images.pexels.com/photos/1832715/pexels-photo-1832715.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  position: fixed;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo {
+  width: 100px;
+  float: right;
+  margin-left: 65vw;
+}
+
+.bodyContainer {
+  margin-top: 40vh;
+  margin-left: 50vw;
+  margin-right: 10vw;
+}
+
+.componentBody {
+  margin-top: 100px;
+}
+
+.campus-list {
+  font-family: Arial;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.campus-list li {
+  list-style-type: none;
+  margin: 10px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.list-container {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  display: inline-block;
+}
+
+.list-image {
+  display: block;
+  width: 500px;
+  height: 300px;
+}
+
+.list-overlay {
+  position: absolute;
+  transition: all 0.3s ease;
+  opacity: 0;
+  background-color: #eee;
+}
+
+.list-container:hover .list-overlay {
+  opacity: 0.5;
+}
+
+.list-text {
+  font-family: 'Courier-New';
+  font-size: 24px;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay-top {
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+
+.list-container:hover .overlay-top {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fd736d;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.singleCampus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.col {
+  padding: 50;
+}
+
+.btn {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border: 1.5px solid rgb(0, 0, 0);
+  margin: 20px 5px 40px 5px;
+  padding: 8px;
+}
+
+.btn:hover {
+  background-color: rgb(255, 255, 255, 0);
+  color: black;
+}
+
+.submit {
+  background-color: #fdbcb8;
+}
+
+.list-group-item {
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+thead {
+  background-color: black;
+  color: white;
+  font-family: 'Courier New';
+}
+
+table {
+  background-color: rgb(255, 255, 255, 0.3);
+  font-family: 'Courier New';
+}
+
+.singleStudent {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.campus-list a {
+  text-decoration: none;
+  color: black;
+}

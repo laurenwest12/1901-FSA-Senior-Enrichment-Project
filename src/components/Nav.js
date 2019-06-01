@@ -1,40 +1,43 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const mapStateToProps = (state) => {
-    return {
-        students: state.products,
-        campuses: state.campuses
+const Nav = ({ location: { pathname } }) => {
+  const links = [
+    {
+      title: 'HOME',
+      path: '/'
+    },
+    {
+      title: 'CAMPUSES',
+      path: '/campuses'
+    },
+    {
+      title: 'STUDENTS',
+      path: '/students'
     }
-};
-
-const Nav = ({location: {pathname}}) => {
-    const links = [
-        {
-            title: 'Home',
-            path: '/'
-        },
-        {
-            title: 'Campuses',
-            path: '/campuses'
-        },
-        {
-            title: 'Students',
-            path: '/students'
-        },
-    ]
-    return (
-        <ul className = 'nav nav-pills'> 
-        {
-            links.map(link => (
-                <li key = {link.path}>
-                    <Link to = {link.path}  className =  {`nav-link${link.path === pathname ? ' active': ''}`}>{link.title}</Link>
-                </li>
-            ))
-        }
+  ];
+  return (
+    <div className="navcontainer">
+      <nav className="navbar navbar-expand-md navbar-light fixed-top">
+        <ul className="navbar-nav mr-auto">
+          {links.map(link => (
+            <li key={link.path}>
+              <div className="nav-button">
+                <Link
+                  to={link.path}
+                  className={`nav-link${
+                    link.path === pathname ? ' active' : ''
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              </div>
+            </li>
+          ))}
         </ul>
-    )
+      </nav>
+    </div>
+  );
 };
 
-export default connect(mapStateToProps)(Nav);
+export default Nav;
