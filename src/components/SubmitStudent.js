@@ -39,6 +39,7 @@ class SubmitStudent extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.postStudent(this.state);
+    this.props.history.push(`/students`);
   }
 
   handleClear() {
@@ -117,7 +118,7 @@ class SubmitStudent extends Component {
                 type="text"
                 name="gpa"
                 value={this.state.gpa}
-                placeholder="GPA"
+                placeholder="GPA, MUST be a number between 0 and 4"
                 onChange={this.handleChange}
               />
             </li>

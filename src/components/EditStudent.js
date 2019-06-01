@@ -50,7 +50,6 @@ class EditStudent extends Component {
   }
 
   handleChange({ target }) {
-    console.log(this.props.student.id);
     this.setState({
       [target.name]: target.value
     });

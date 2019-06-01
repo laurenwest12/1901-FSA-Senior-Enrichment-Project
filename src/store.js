@@ -113,7 +113,6 @@ export const getStudentThunk = id => {
 };
 
 export const postCampusThunk = newCampus => {
-  console.log(newCampus);
   return dispatch => {
     axios
       .post('/api/campus/', newCampus)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postCampusThunk } from '../store';
+import { Redirect } from 'react-router-dom';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -30,6 +31,7 @@ class SubmitCampus extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.postCampus(this.state);
+    this.props.history.push(`/campuses`);
   }
 
   handleClear() {
